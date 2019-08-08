@@ -1,3 +1,3 @@
 export default function() {
-  console.log('c loaded');
+  console.log('c loaded!');
 }
