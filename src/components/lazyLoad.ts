@@ -1,6 +1,7 @@
 const modules = {
   'ComponentA': () => import('./componentA'),
   'ComponentB': () => import('./componentB'),
+  'ComponentC': () => import('./componentC'),
   'InterfaceClass': () => import('./interfaceClass'),
   'Geometry': () => import('./geometry'),
 }
