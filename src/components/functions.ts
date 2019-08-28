@@ -57,4 +57,27 @@ class OverloadedClass implements OverloadingInterface {
 
 new OverloadedClass().someMethod('number').toLowerCase();
 
+function getEntities<T>(url: string, callback: (items: T[]) => void): void {
+  fetch(url)
+    .then(data => data.json())
+    .then(items => callback(items));
+}
+
+const getMock = (cb) => getEntities('https://www.mocky.io/v2/5185415ba171ea3a00704eed', cb);
+
+getMock((res) => {
+  console.log(res);
+})
+
+async function advancedGetEntities<T>(url: string): Promise<T> {
+  let data;
+  data = await fetch(url);
+  data = await data.json();
+  return data;
+}
+
+advancedGetEntities('https://www.mocky.io/v2/5185415ba171ea3a00704eed').then((value) => {
+  console.log(value);
+})
+
 })();
