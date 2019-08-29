@@ -30,9 +30,9 @@ export default (function() {
 
 
 
-  console.log(add(1, 5, 7));
+  // console.log(add(1, 5, 7));
 
-  console.log(advancedAdd([5, 34]))
+  // console.log(advancedAdd([5, 34]))
 
 interface OverloadingInterface {
   someMethod(someParameter: "string"): string;
@@ -79,5 +79,22 @@ async function advancedGetEntities<T>(url: string): Promise<T> {
 advancedGetEntities('https://www.mocky.io/v2/5185415ba171ea3a00704eed').then((value) => {
   console.log(value);
 })
+
+function *someGeneratorFunction() {
+  yield 1;
+  yield 2;
+  yield 3;
+  yield 4;
+  return 5;
+}
+
+const generatorImplementation = someGeneratorFunction();
+console.log(generatorImplementation.next());
+console.log(generatorImplementation.next());
+console.log(generatorImplementation.next());
+console.log(generatorImplementation.next());
+console.log(generatorImplementation.next());
+console.log(generatorImplementation.next());
+console.log(generatorImplementation.next());
 
 })();
