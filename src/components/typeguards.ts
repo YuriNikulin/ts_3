@@ -19,8 +19,8 @@ customConsole = {
 }
 
 window.addEventListener('resize', function() {
-  console.log('hoba');
+  // console.log('hoba');
 })
 
 
-customConsole.log('hoba');
+// customConsole.log('hoba');
