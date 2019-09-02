@@ -65,9 +65,9 @@ function getEntities<T>(url: string, callback: (items: T[]) => void): void {
 
 const getMock = (cb) => getEntities('https://www.mocky.io/v2/5185415ba171ea3a00704eed', cb);
 
-getMock((res) => {
-  console.log(res);
-})
+// getMock((res) => {
+//   console.log(res);
+// })
 
 async function advancedGetEntities<T>(url: string): Promise<T> {
   let data;
@@ -76,8 +76,43 @@ async function advancedGetEntities<T>(url: string): Promise<T> {
   return data;
 }
 
-advancedGetEntities('https://www.mocky.io/v2/5185415ba171ea3a00704eed').then((value) => {
-  console.log(value);
-})
+// advancedGetEntities('https://www.mocky.io/v2/5185415ba171ea3a00704eed').then((value) => {
+//   console.log(value);
+// })
+
+interface IMyInterface {
+  doSomething();
+}
+
+interface IMySecondInterface {
+  doSomethingElse();
+}
+
+
+class Example<T extends IMyInterface> {
+  private genericProperty: T;
+
+  constructor(prop) {
+    this.genericProperty = prop;
+  }
+
+  get _prop() {
+    console.log(this.genericProperty);
+    return this.genericProperty;
+  }
+}
+
+class AdditionalClass {
+  doFuckingAnything() {
+    console.log('doing fucking anything');
+  }
+
+  doSomething() {
+    console.log('doing something');
+  }
+}
+
+const InstOfExample = new Example<AdditionalClass>(new AdditionalClass());
+InstOfExample._prop.doFuckingAnything();
 
 })();
